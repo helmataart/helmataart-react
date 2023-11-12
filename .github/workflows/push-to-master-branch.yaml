@@ -5,6 +5,7 @@ on:
     branches:
       - 'main'
       - 'master'
+      - 'feature/*'
 jobs:
   if_push:
     name: Check if pull request merged to master branch
