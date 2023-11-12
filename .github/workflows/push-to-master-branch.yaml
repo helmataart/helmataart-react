@@ -1,0 +1,21 @@
+# Push to master branch 
+name: Push to master branch
+on:
+  push:
+    branches:
+      - 'main'
+      - 'master'
+jobs:
+  if_push:
+    name: Check if pull request merged to master branch
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo pull request merged to master branch
+  if_tag:
+    name: Check if tag has been created on master branch
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo tag has been created on master branch
+        
