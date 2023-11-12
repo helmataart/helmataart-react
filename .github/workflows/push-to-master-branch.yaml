@@ -13,8 +13,9 @@ jobs:
       - run: |
           echo pull request merged to master branch
   if_tag:
-    name: Check if tag has been created on master branch
+    name: Check if tag has been created on master branch    
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - run: |
           echo tag has been created on master branch
