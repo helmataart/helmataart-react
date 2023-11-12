@@ -1,14 +1,6 @@
-name: Create tag on master branch
+name: Build and deploy
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
   push:
-    branches:
-      - 'master'
-      - 'main'
-      - 'feature/*'
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 env:
