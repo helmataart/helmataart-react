@@ -21,4 +21,5 @@ jobs:
     steps:
       - run: |
           echo tag has been created on master branch
+          echo Event name: ${{ github.event_name }}
         
