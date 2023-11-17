@@ -44,7 +44,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Package
-      - run: tar zxvf ./artifact.tgz    
+      - run: tar zxvf ./artifact.tgz
       - run: pwd && ls -la
       - run: pwd && ls -la staging
       - name: Login to container repository
@@ -74,8 +74,8 @@ jobs:
       - name: Build and push Docker Image
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: ./Dockerfile
+          context: ./staging
+          file: ./staging/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}      
