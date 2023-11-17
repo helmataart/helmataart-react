@@ -38,4 +38,5 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Package
+      - run: tar zxvf ./artifact.tgz    
       - run: pwd && ls -la  
