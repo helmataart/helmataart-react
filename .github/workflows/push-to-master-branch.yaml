@@ -45,6 +45,7 @@ jobs:
         with:
           name: Package
       - run: tar zxvf ./artifact.tgz    
+      - run: pwd && ls -la
       - run: pwd && ls -la staging
       - name: Login to container repository
         if: github.event_name != 'pull_request'
@@ -73,7 +74,7 @@ jobs:
       - name: Build and push Docker Image
         uses: docker/build-push-action@v4
         with:
-          context: ./staging
+          context: .
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
