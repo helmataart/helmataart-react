@@ -22,7 +22,7 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-      - run: mkdir staging && cp build/* staging
+      - run: mkdir staging && cp -a build/. staging
       - uses: actions/upload-artifact@v3
         with:
           name: Package
