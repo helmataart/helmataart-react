@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 18, 20 ]
+        node-version: [ 20 ]
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
@@ -22,8 +22,8 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-      - run: mkdir staging && cp -a build/. staging-${{ matrix.node-version }}
-      - run: tar zcvf artifact.tgz $(find . -name staging-${{ matrix.node-version }} -type d)
+      - run: mkdir staging && cp -a build staging
+      - run: tar zcvf artifact.tgz $(find . -name staging -type d)
       - uses: actions/upload-artifact@v3
         with:
           name: Package
