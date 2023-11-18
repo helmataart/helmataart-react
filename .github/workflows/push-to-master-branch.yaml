@@ -84,6 +84,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: [create-docker-image]
     steps:
+      - name: Checkout manifests
+        uses: actions/checkout@v4
       - name: Set the Kubernetes context
         uses: azure/k8s-set-context@v3
         with:
