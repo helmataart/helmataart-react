@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - image: docker.io/digilinq/store-ui
-        name: store-web
+        name: store-ui
       dnsConfig:
         options:
           - name: ndots
