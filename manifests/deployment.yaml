@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:  
+  labels:
+    app.kubernetes.io/name: store-web
+  name: store-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: store-web
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: store-web
+    spec:
+      containers:
+      - image: docker.io/digilinq/store-ui
+        name: store-web
+      dnsConfig:
+        options:
+          - name: ndots
+            value: "2"
