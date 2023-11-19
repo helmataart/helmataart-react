@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: store-web
+  labels:
+    app.kubernetes.io/name: store-web
+spec:
+  selector:
+    app.kubernetes.io/name: store-web
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  type: ClusterIP
