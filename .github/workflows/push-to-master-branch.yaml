@@ -5,7 +5,6 @@ on:
     branches:
       - 'main'
       - 'master'
-      - 'feature/*'
 env:
   REGISTRY: docker.io
   USERNAME: ${{ secrets.DOCKER_USERNAME }}
