@@ -15,12 +15,11 @@ jobs:
           images: |
             IMAGE
           tags: |
-            type=sha
+            type=sha,prefix=,suffix=
           flavor: |
-            prefix=
-            suffix=
-      - run: |
-          echo "$DOCKER_METADATA_OUTPUT_TAGS"     
+            latest=true  
+      - run: |          
+          echo "docker-iamge=$DOCKER_METADATA_OUTPUT_TAGS" >> "$GITHUB_OUTPUT"
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -29,4 +28,4 @@ jobs:
     steps:
       - name: Print tags
         run: |
-          echo "$DOCKER_METADATA_OUTPUT_TAGS"     
+          echo "$GITHUB_OUTPUT"     
