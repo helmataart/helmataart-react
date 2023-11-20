@@ -4,7 +4,7 @@ on:
     branches: 
       - 'feature/*'
 jobs:
-  package:
+  create-docker-image:
     name: Create docker image
     runs-on: ubuntu-latest
     outputs:
@@ -24,8 +24,8 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     needs: 
-      - package
+      - create-docker-image
     steps:
       - name: Print tags
         run: |
-          echo "${{ needs.package.outputs.docker-image }}"     
+          echo "${{ needs.create-docker-image.outputs.docker-image }}"     
