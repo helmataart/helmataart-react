@@ -16,6 +16,8 @@ jobs:
             IMAGE
           tags: |
             type=sha,prefix=,suffix=
+          flavor: |
+            latest=true  
       - run: |
           echo "${{ steps.meta.outputs.tags }}"     
   deploy:
