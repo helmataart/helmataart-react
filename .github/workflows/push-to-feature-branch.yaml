@@ -19,7 +19,7 @@ jobs:
           flavor: |
             latest=true  
       - run: |
-          echo "${{ steps.meta.outputs.tags }}"     
+          echo "$DOCKER_METADATA_OUTPUT_TAGS"     
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
