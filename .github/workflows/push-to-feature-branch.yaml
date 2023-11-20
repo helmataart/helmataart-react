@@ -15,7 +15,7 @@ jobs:
           images: |
             IMAGE
           tags: |
-            type=sha,prefix=,suffix=
+            type=sha
           flavor: |
             latest=true  
       - run: |
