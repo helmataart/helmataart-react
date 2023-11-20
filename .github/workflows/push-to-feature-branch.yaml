@@ -17,7 +17,8 @@ jobs:
           tags: |
             type=sha
           flavor: |
-            latest=true  
+            prefix=
+            suffix=
       - run: |
           echo "$DOCKER_METADATA_OUTPUT_TAGS"     
   deploy:
