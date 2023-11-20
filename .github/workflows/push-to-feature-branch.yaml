@@ -1,0 +1,27 @@
+name: Push to feature branch
+on: 
+  push: 
+    branches: 
+      - 'feature/*'
+jobs:
+  package:
+    name: Create docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.PACKAGE }}
+          tags: |
+            type=sha,prefix=,suffix=
+      - run: |
+          echo "${{ steps.meta.outputs.tags }}"     
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print tags
+        run: |
+          echo      
