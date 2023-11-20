@@ -13,7 +13,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.PACKAGE }}
+            IMAGE
           tags: |
             type=sha,prefix=,suffix=
       - run: |
@@ -21,6 +21,8 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    needs: 
+      - package
     steps:
       - name: Print tags
         run: |
