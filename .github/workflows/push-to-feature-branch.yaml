@@ -7,6 +7,8 @@ jobs:
   package:
     name: Create docker image
     runs-on: ubuntu-latest
+    outputs:
+      docker-image: ${{ steps.meta.outputs.tags }}
     steps:
       - name: Extract metadata (tags, labels) for Docker
         id: meta
@@ -18,8 +20,6 @@ jobs:
             type=sha,prefix=,suffix=
           # flavor: |
           #   latest=true  
-      - run: |          
-          echo "docker-iamge=$DOCKER_METADATA_OUTPUT_TAGS" >> "$GITHUB_OUTPUT"
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -28,4 +28,4 @@ jobs:
     steps:
       - name: Print tags
         run: |
-          echo "$GITHUB_OUTPUT"     
+          echo "${{ needs.package.outputs.docker-image }}"     
