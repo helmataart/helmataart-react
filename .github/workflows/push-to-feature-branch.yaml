@@ -16,8 +16,8 @@ jobs:
             IMAGE
           tags: |
             type=sha,prefix=,suffix=
-          flavor: |
-            latest=true  
+          # flavor: |
+          #   latest=true  
       - run: |          
           echo "docker-iamge=$DOCKER_METADATA_OUTPUT_TAGS" >> "$GITHUB_OUTPUT"
   deploy:
