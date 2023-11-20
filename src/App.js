@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Make any changes and push to master branch.          
+          Make any changes and push to master branch. That is awesome.        
         </p>
         <a
           className="App-link"
