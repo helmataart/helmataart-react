@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       docker-image: ${{ steps.meta.outputs.tags }}
+      tags: $DOCKER_METADATA_OUTPUT_TAGS
     steps:
       - name: Extract metadata (tags, labels) for Docker
         id: meta
@@ -29,3 +30,4 @@ jobs:
       - name: Print tags
         run: |
           echo "${{ needs.package.outputs.docker-image }}"     
+          echo "${{ needs.package.outputs.tags }}"
