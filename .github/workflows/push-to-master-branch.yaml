@@ -62,7 +62,14 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.PACKAGE }}
           tags: |
             type=sha,prefix=,suffix=
-    
+      - name: Build and push Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./staging
+          file: ./staging/Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}      
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -70,7 +77,8 @@ jobs:
       - create-docker-image
     steps:
       - name: Print tags
-        run: echo "${{ needs.create-docker-image.outputs.docker-image }}"
+        run: | 
+          echo "${{ needs.create-docker-image.outputs.docker-image }}"
       - name: Checkout manifests
         uses: actions/checkout@v4
       - name: Set the Kubernetes context
