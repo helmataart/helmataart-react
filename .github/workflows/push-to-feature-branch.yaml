@@ -28,4 +28,4 @@ jobs:
     steps:
       - name: Print tags
         run: |
-          echo      
+          echo "$DOCKER_METADATA_OUTPUT_TAGS"     
