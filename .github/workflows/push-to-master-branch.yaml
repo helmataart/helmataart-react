@@ -8,7 +8,7 @@ on:
       - 'feature/*'
 env:
   REGISTRY: docker.io
-  USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  USERNAME: digilinq
   PACKAGE: store-ui      
 jobs:
   build:
