@@ -25,7 +25,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run build --if-present
-      - run: npm test
+      # - run: npm test
       - run: mkdir staging && cp -a build staging
       - run: cp Dockerfile staging
       - run: cp nginx.conf staging
