@@ -93,5 +93,7 @@ jobs:
           namespace: default
           manifests: |
             manifests/deployment.yaml
+            manifests/service.yaml
+            manifests/ingress.yaml
           images: |
             ${{ needs.create-docker-image.outputs.docker-image }}
