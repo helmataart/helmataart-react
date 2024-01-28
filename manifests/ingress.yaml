@@ -16,3 +16,13 @@ spec:
             name: store-web
             port:
               number: 80
+  - host: www.helmataart.nl
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: store-web
+            port:
+              number: 80
