@@ -1,10 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import Hero from './components/hero';
+import About from './components/about';
+import React from 'react';
+
 
 function App() {
   return (
-    <Hero />
+    <React.Fragment>
+      <Hero />
+      <About />
+    </React.Fragment>
   );
 }
 
