@@ -1,6 +1,8 @@
 import React from 'react';
+import PureCounter from "@srexi/purecounterjs";
 
 const StatsCounter = () => {
+
   return (
     <section id="stats-counter" className="stats-counter">
       <div className="container" data-aos="zoom-out">
@@ -41,5 +43,12 @@ const StatsCounter = () => {
     </section>
   );
 };
+
+// const pure = new PureCounter();
+
+/**
+ * Initiate pURE cOUNTER
+ */
+new PureCounter();
 
 export default StatsCounter;
