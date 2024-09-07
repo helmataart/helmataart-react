@@ -7,9 +7,9 @@ on:
       - 'master'
       - 'feature/*'
 env:
-  REGISTRY: docker.io
-  USERNAME: digilinq
-  PACKAGE: store-ui      
+  REGISTRY: ${{ vars.CONTAINER_REGISTRY }}
+  USERNAME: ${{ vars.DOCKER_HUB_USERNAME }}
+  PACKAGE: ${{ vars.PACKAGE_NAME }}      
 jobs:
   build:
     name: Build with node version ${{ matrix.node-version }}
