@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: store-web
+  name: helmataart
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
@@ -13,7 +13,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: store-web
+            name: helmataart
             port:
               number: 80
   - host: www.helmataart.nl
@@ -23,6 +23,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: store-web
+            name: helmataart
             port:
               number: 80
