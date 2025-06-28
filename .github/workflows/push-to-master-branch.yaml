@@ -1,5 +1,4 @@
-# Push to master branch 
-name: Push to master branch
+name: Build and Deploy to Kubernetes
 on:
   push:
     branches:
@@ -9,7 +8,7 @@ on:
 env:
   REGISTRY: ${{ vars.CONTAINER_REGISTRY }}
   USERNAME: ${{ vars.DOCKER_HUB_USERNAME }}
-  PACKAGE: ${{ vars.PACKAGE_NAME }}      
+  PACKAGE: ${{ vars.PACKAGE_NAME }}
 jobs:
   build:
     name: Build with node version ${{ matrix.node-version }}
@@ -30,7 +29,7 @@ jobs:
       - run: cp Dockerfile staging
       - run: cp nginx.conf staging
       - run: tar zcvf artifact.tgz $(find . -name staging -type d)
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: Package
           path: artifact.tgz
@@ -43,7 +42,7 @@ jobs:
       docker-image: ${{ steps.meta.outputs.tags }}  
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: Package
       - run: tar zxvf ./artifact.tgz
